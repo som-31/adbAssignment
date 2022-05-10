@@ -28,7 +28,7 @@
     <span>No records are found</span>
 @endif
 
-<h1>Code for 12 point starts here</h1>
+<!-- <h1>Code for 12 point starts here</h1>
 <h1>Fetch Earthquake Data corresponding to Different Magnitude ranges</h1>
 <form action="dateRangeEarthquakeData" method="get">
     <div>
@@ -44,8 +44,8 @@
     <div>
         <label for="place">Enter Place</label>
         <input type="text" name="place" id="place">
-    </div>
-{{--    <div>--}}
+    </div> -->
+<!-- {{--    <div>--}}
 {{--        <label for="dateMinRange">Date From</label>--}}
 {{--        <input type="date" name="dateMinRange" id="dateMinRange">--}}
 {{--    </div>--}}
@@ -84,6 +84,6 @@
 
 @else
     <span>No records found</span>
-@endif
+@endif -->
 </body>
 </html>

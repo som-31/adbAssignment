@@ -18,9 +18,11 @@
 </head>
 <body>
 <button><a href="/" style="text-decoration: none;">Get Random Earthquake Data</a></button>
-<button><a href="/filteredEarthquakeDataView" style="text-decoration: none;">Filtered Earthquake Data</a></button>
-<h1>Fetch Earthquake data upto 1000 records</h1>
-<form action="randomEarthquakeData" method="get">
+{{--<button><a href="/filteredEarthquakeDataView" style="text-decoration: none;">Filtered Earthquake Data</a></button>--}}
+<h1>Student Name: Somnath Jadhav</h1>
+<h1>Student Id: 1001967009</h1>
+<h1>Fetch Earthquake data</h1>
+<form action="/" method="get">
     <label>Enter number</label>
     <input type="number" name="count" id="count">
     <input type="submit" value="Fetch Records">
