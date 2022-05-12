@@ -64,11 +64,11 @@ class EarthquakeController extends Controller
             /**
              * Get the data from redis and return the response
              */
-            if($cachedData = Redis::get('count_' . $request->get('count'))){
-                return view('assignment3/assignment3',
-                    ['records' => json_decode($cachedData, true),
-                        'message' => 'Data is being fetched from Redis cache']);
-            }
+//            if($cachedData = Redis::get('count_' . $request->get('count'))){
+//                return view('assignment3/assignment3',
+//                    ['records' => json_decode($cachedData, true),
+//                        'message' => 'Data is being fetched from Redis cache']);
+//            }
             /**
              * condition to enforce 1000 records
              */
@@ -85,7 +85,7 @@ class EarthquakeController extends Controller
 //        echo ' '.$endTime->format('m/d/Y, H:i:s:v');
             $interval = $startTime->diff($endTime);
             $diffInSeconds = $interval->s;
-            Redis::set('count_'.$count, json_encode($records)) ;
+//            Redis::set('count_'.$count, json_encode($records)) ;
             return view('assignment3/assignment3', ['records' => $records,
                 'seconds' => $diffInSeconds,
                 'startTime' =>$startTime->format('m/d/Y, H:i:s:v'),
@@ -121,15 +121,15 @@ class EarthquakeController extends Controller
         /**
          * Get the data from redis and return the response
          */
-        if($cachedData = Redis::get($filteredEarthquakeRedisVariable)){
-            return view('assignment3/filteredEarthquakeData',
-                ['records' => json_decode($cachedData, true),
-                    'message' => 'Data is being fetched from Redis cache']);
-        }
+//        if($cachedData = Redis::get($filteredEarthquakeRedisVariable)){
+//            return view('assignment3/filteredEarthquakeData',
+//                ['records' => json_decode($cachedData, true),
+//                    'message' => 'Data is being fetched from Redis cache']);
+//        }
         $query = 'Select * from all_month_1 where ';
         $parameters = [];
         foreach ($request->all() as $key => $eachParameter){
-            if($key == 'magMinRange' || $key == 'magMaxRange' || $key == 'dateMinRange' || $key == 'dateMaxRange'){
+            if($key == 'magMinRange' || $key == 'magMaxRange' || $key == 'dateMinRange' || $key == 'dateMaxRange' || $key == 'q'){
                 continue;
             }
             if($key && $eachParameter){
@@ -157,7 +157,7 @@ class EarthquakeController extends Controller
 //        echo ' '.$endTime->format('m/d/Y, H:i:s:v');
         $interval = $startTime->diff($endTime);
         $diffInSeconds = $interval->s;
-        Redis::set($filteredEarthquakeRedisVariable, json_encode($records));
+//        Redis::set($filteredEarthquakeRedisVariable, json_encode($records));
         return view('assignment3/filteredEarthquakeData', ['records' => $records,
             'seconds' => $diffInSeconds,
             'startTime' =>$startTime->format('m/d/Y, H:i:s:v'),
