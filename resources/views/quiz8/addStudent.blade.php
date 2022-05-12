@@ -10,22 +10,18 @@
 <body>
 <button><a href="/" style="text-decoration: none;">Add Class</a></button>
 <button><a href="/addStudent" style="text-decoration: none;">Add Student to a class</a></button>
- <h1>Student Name: Somnath Jadhav</h1>
-<h1>Student ID: 1001967009</h1>
-{{-- <form action="" method="post"></form>--}}
-
-<form method="get" action="{{ url('/') }}">
-    <div>
-        <label>Enter Class Name</label>
-        <input type="text" name="className" id="className">
-    </div>
-    <div>
-        <label>Enter Enrollment Limit</label>
-        <input type="number" name="limit" id="limit">
-    </div>
-<div>
-    <input type="submit" value="Submit">
-</div>
+<form action="/student" method="get">
+        <div>
+            <label>Enter Class Name</label>
+            <input type="text" name="className" id="className">
+        </div>
+        <div>
+            <label>Enter Student ID</label>
+            <input type="number" name="studentId" id="studentId">
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
 </form>
 </body>
 </html>

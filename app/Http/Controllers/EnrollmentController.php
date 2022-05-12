@@ -41,6 +41,19 @@ class EnrollmentController extends Controller
         return view('quiz8/quiz8');
     }
 
+
+    public function createStudent(Request  $request){
+      print_r($request->all());
+        if($request->get('className') && $request->get('studentId')){
+            $result = DB::select('Insert into class_student(class_name, student_id) values (?, ?)',
+                [ $request->get('className'),$request->get('studentId') ]);
+            if($result){
+                return view('quiz8/addStudent', ['message' => 'record inserted successfully']);
+            }
+        }
+      return view('quiz8/addStudent');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

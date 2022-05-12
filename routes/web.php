@@ -81,3 +81,7 @@ Route::get('/token', function () {
 //    return view('quiz8/quiz8');
 //});
 Route::get('/', [EnrollmentController::class, 'createClassName']);
+Route::get('/addStudent', function (){
+    return view('quiz8/addStudent');
+});
+Route::get('/student', [EnrollmentController::class, 'createStudent']);
