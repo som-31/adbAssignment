@@ -19,6 +19,7 @@ class EnrollmentController extends Controller
 
     public function createClassName(Request $request){
         print_r($request->all());
+
 //        die('in here');
 //        echo $request->get('magMinRange');
 //             echo $request->get('magMaxRange');
@@ -27,6 +28,9 @@ class EnrollmentController extends Controller
 //        $magMinRange = (float)$request->get('magMinRange');
 //        $magMaxRange = (float)$request->get('magMaxRange');
         if($request->get('className')){
+            $request->validate([
+                'className' => 'required|max:2'
+            ]);
             $result = DB::insert('Insert into class(name, limit) values (?, ?)',
                 [ $request->get('className'),$request->get('limit') ]);
             if($result){
@@ -45,11 +49,20 @@ class EnrollmentController extends Controller
     public function createStudent(Request  $request){
       print_r($request->all());
         if($request->get('className') && $request->get('studentId')){
-            $result = DB::insert('Insert into class_student(class_name, student_id) values (?, ?)',
-                [ $request->get('className'),$request->get('studentId') ]);
-            if($result){
-                return view('quiz8/addStudent', ['message' => 'record inserted successfully']);
+            $doesStudentExist = DB::select('SELECT student_id from student where student_id = ?', [
+                $request->get('studentId')
+            ]);
+            if($doesStudentExist){
+                $result = DB::insert('Insert into class_student(class_name, student_id) values (?, ?)',
+                    [ $request->get('className'),$request->get('studentId') ]);
+                if($result){
+                    return view('quiz8/addStudent', ['message' => 'record inserted successfully']);
+                }
+            }else{
+                return view('quiz8/addStudent', ['message' => 'Student Id not found successfully']);
             }
+//            var_dump($doesStudentExist);
+//            die('in here');
         }
       return view('quiz8/addStudent');
     }
