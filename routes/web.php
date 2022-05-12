@@ -86,3 +86,4 @@ Route::get('/addStudent', function (){
 });
 Route::get('/student', [EnrollmentController::class, 'createStudent']);
 Route::get('/getStudents', [EnrollmentController::class, 'getStudents']);
+Route::get('/removeStudent', [EnrollmentController::class, 'removeStudent']);

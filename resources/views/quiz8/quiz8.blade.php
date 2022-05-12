@@ -11,6 +11,7 @@
 <button><a href="/" style="text-decoration: none;">Add Class</a></button>
 <button><a href="/addStudent" style="text-decoration: none;">Add Student to a class</a></button>
 <button><a href="/getStudents" style="text-decoration: none;">Get Students for a class</a></button>
+<button><a href="/removeStudent" style="text-decoration: none;">Remove Students for a class</a></button>
  <h1>Student Name: Somnath Jadhav</h1>
 <h1>Student ID: 1001967009</h1>
 {{-- <form action="" method="post"></form>--}}

@@ -70,6 +70,18 @@ class EnrollmentController extends Controller
         return view('quiz8/getStudents');
     }
 
+    public function removeStudent(Request $request){
+        print_r($request->all());
+        if($request->get('className') && $request->get('studentId')){
+            $result = DB::delete ('Delete from class_student where class_name = ? and student_id = ?',
+                [ $request->get('className'),$request->get('studentId') ]);
+            if($result){
+                return view('quiz8/removeStudent', ['message' => 'record Removed successfully']);
+            }
+        }
+        return view('quiz8/removeStudent');
+    }
+
 
     /**
      * Show the form for creating a new resource.

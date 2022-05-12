@@ -12,18 +12,18 @@
 <button><a href="/addStudent" style="text-decoration: none;">Add Student to a class</a></button>
 <button><a href="/getStudents" style="text-decoration: none;">Get Students for a class</a></button>
 <button><a href="/removeStudent" style="text-decoration: none;">Remove Students for a class</a></button>
-<form action="/student" method="get">
-        <div>
-            <label>Enter Class Name</label>
-            <input type="text" name="className" id="className">
-        </div>
-        <div>
-            <label>Enter Student ID</label>
-            <input type="number" name="studentId" id="studentId">
-        </div>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
+<form action="/removeStudent" method="get">
+    <div>
+        <label>Enter Class Name</label>
+        <input type="text" name="className" id="className">
+    </div>
+    <div>
+        <label>Enter Student ID</label>
+        <input type="number" name="studentId" id="studentId">
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
 </form>
 </body>
 </html>
