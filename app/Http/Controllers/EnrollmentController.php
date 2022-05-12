@@ -27,7 +27,7 @@ class EnrollmentController extends Controller
 //        $magMinRange = (float)$request->get('magMinRange');
 //        $magMaxRange = (float)$request->get('magMaxRange');
         if($request->get('className')){
-            $result = DB::select('Insert into class(name, limit) values (?, ?)',
+            $result = DB::insert('Insert into class(name, limit) values (?, ?)',
                 [ $request->get('className'),$request->get('limit') ]);
             if($result){
                 return view('quiz8/quiz8', ['message' => 'record inserted successfully']);
@@ -45,7 +45,7 @@ class EnrollmentController extends Controller
     public function createStudent(Request  $request){
       print_r($request->all());
         if($request->get('className') && $request->get('studentId')){
-            $result = DB::select('Insert into class_student(class_name, student_id) values (?, ?)',
+            $result = DB::insert('Insert into class_student(class_name, student_id) values (?, ?)',
                 [ $request->get('className'),$request->get('studentId') ]);
             if($result){
                 return view('quiz8/addStudent', ['message' => 'record inserted successfully']);
@@ -53,6 +53,23 @@ class EnrollmentController extends Controller
         }
       return view('quiz8/addStudent');
     }
+
+    public function getStudents(Request  $request){
+        print_r($request->all());
+        if($request->get('className')){
+            $result = DB::select('Select * from class_student where class_name = ?',
+                [ $request->get('className') ]);
+            $records = json_decode(json_encode($result), true);
+            $count = count($records);
+            return view('quiz8/getStudents', ['records' => $records, 'count' => $count,
+                'message' => 'records found successfully']);
+//            if($result){
+//                return view('quiz8/addStudent', ['message' => 'record inserted successfully']);
+//            }
+        }
+        return view('quiz8/getStudents');
+    }
+
 
     /**
      * Show the form for creating a new resource.

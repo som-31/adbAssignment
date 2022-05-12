@@ -10,6 +10,7 @@
 <body>
 <button><a href="/" style="text-decoration: none;">Add Class</a></button>
 <button><a href="/addStudent" style="text-decoration: none;">Add Student to a class</a></button>
+<button><a href="/getStudents" style="text-decoration: none;">Get Students for a class</a></button>
 <form action="/student" method="get">
         <div>
             <label>Enter Class Name</label>

@@ -85,3 +85,4 @@ Route::get('/addStudent', function (){
     return view('quiz8/addStudent');
 });
 Route::get('/student', [EnrollmentController::class, 'createStudent']);
+Route::get('/getStudents', [EnrollmentController::class, 'getStudents']);
