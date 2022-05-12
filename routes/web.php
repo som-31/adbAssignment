@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\EarthquakeController;
+use App\Http\Controllers\EnrollmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,12 +46,12 @@ Route::get('/token', function () {
 // Route::get('/', function (){
 //     return view('assignment3/assignment3');
 // });
-Route::get('/', [EarthquakeController::class, 'getRandomEarthquakeData']);
-// Route::get('/randomEarthquakeData', [EarthquakeController::class, 'getRandomEarthquakeData']);
- Route::get('/filteredEarthquakeDataView', function (){
-     return view('assignment3/filteredEarthquakeData');
- });
- Route::get('/filterEarthquakeData', [EarthquakeController::class, 'getFilteredEarthquakeData']);
+//Route::get('/', [EarthquakeController::class, 'getRandomEarthquakeData']);
+//// Route::get('/randomEarthquakeData', [EarthquakeController::class, 'getRandomEarthquakeData']);
+// Route::get('/filteredEarthquakeDataView', function (){
+//     return view('assignment3/filteredEarthquakeData');
+// });
+// Route::get('/filterEarthquakeData', [EarthquakeController::class, 'getFilteredEarthquakeData']);
 
 
 //Routes for Quiz3
@@ -75,3 +76,8 @@ Route::get('/', [EarthquakeController::class, 'getRandomEarthquakeData']);
 //});
 
 // Route::get('/', [EarthquakeController::class, 'quiz4Point6']);
+
+//Route::get('/', function (){
+//    return view('quiz8/quiz8');
+//});
+Route::get('/', [EnrollmentController::class, 'createClassName']);
